@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Manrope Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --color-backdrop: var(--backdrop);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-hero: var(--hero);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+}
+
+@theme {
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -16px rgb(0 0 0 / 0.16);
+  --shadow-fab: 0 10px 24px -8px rgb(255 106 19 / 0.65);
+
+  --animate-sheet: sheet-up 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-fade: fade-in 0.2s ease-out;
+  --animate-pop: pop-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  @keyframes sheet-up {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.97);
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+  --backdrop: #e3e1da;
+  --bg: #f2f1ed;
+  --surface: #ffffff;
+  --surface-2: #f5f4f0;
+  --raised: #ffffff;
+  --ink: #17191c;
+  --muted: #6a6f78;
+  --faint: #a6aab1;
+  --line: #e8e6e0;
+  --hero: #17191c;
+  --accent: #ff6a13;
+  --accent-soft: #ffeee2;
+  --ok: #18985a;
+  --ok-soft: #e2f5ea;
+  --warn: #c77a00;
+  --warn-soft: #fff2d2;
+  --bad: #e0424a;
+  --bad-soft: #fde9ea;
+  --info: #2b78de;
+  --info-soft: #e4eefc;
+  --violet: #7656dc;
+  --violet-soft: #eeeafc;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --backdrop: #060708;
+  --bg: #0f1113;
+  --surface: #1a1d21;
+  --surface-2: #23272c;
+  --raised: #343a42;
+  --ink: #f1f2f4;
+  --muted: #979da7;
+  --faint: #626974;
+  --line: #2b3036;
+  --hero: #22262b;
+  --accent: #ff7a2e;
+  --accent-soft: #3b2415;
+  --ok: #3ccf87;
+  --ok-soft: #153526;
+  --warn: #f2ae3d;
+  --warn-soft: #3a2c10;
+  --bad: #ff6b72;
+  --bad-soft: #3d1b1e;
+  --info: #62a4f7;
+  --info-soft: #15273f;
+  --violet: #a48cf5;
+  --violet-soft: #281f45;
+}
+
+@layer base {
+  html {
+    background: var(--backdrop);
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--ink);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+  }
+  button:not(:disabled),
+  select {
+    cursor: pointer;
+  }
+  /* 16px в полях ввода, иначе iOS приближает страницу при фокусе. */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
